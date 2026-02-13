@@ -1,5 +1,4 @@
-import logging
-from typing import Dict, Optional
+from sentinel.core.stream import TechnicalStream
 from sentinel.ai.base import BaseDetector
 
 logger = logging.getLogger(__name__)
@@ -10,7 +9,7 @@ class StreamManager:
     Manages camera lifecycles and AI detector assignment.
     """
     def __init__(self):
-        self.active_streams: Dict[int, any] = {}
+        self.active_streams: Dict[int, TechnicalStream] = {}
         self.detector: Optional[BaseDetector] = None
 
     def set_detector(self, detector: BaseDetector):
