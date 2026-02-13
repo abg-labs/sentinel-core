@@ -16,6 +16,30 @@ Sentinel Core is designed as a modular pipeline:
 2.  **Detection**: Abstraction layers for AI model inference (YOLO, CLIP, Custom).
 3.  **Intelligence**: Data-schema for persistent tracking and spatial awareness.
 
+## Getting Started
+
+Sentinel Core is designed to be highly extensible. Below is a minimal implementation of a custom situational awareness detector:
+
+```python
+from sentinel.ai.base import BaseDetector, Detection
+from sentinel.core.manager import StreamManager
+
+class CustomUnitDetector(BaseDetector):
+    def detect(self, frame):
+        # Implementation of your AI model inference logic
+        return [
+            Detection(class_id=0, class_name="person", confidence=0.98, bbox=(0.1, 0.1, 0.5, 0.5))
+        ]
+
+# Initialize the Orchestrator
+manager = StreamManager()
+manager.set_detector(CustomUnitDetector())
+
+# Initiate a stream session
+import asyncio
+asyncio.run(manager.start_stream(camera_id=101, source="rtsp://internal.secure-feed.local/stream1"))
+```
+
 ## Progressive Evolution
 
 Sentinel Core is a living framework. We push technical updates and architectural refinements as they are validated through our ongoing strategic deployments. Our goal is to maintain a continuous stream of progress:
