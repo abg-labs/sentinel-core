@@ -21,7 +21,8 @@ Sentinel Core is designed as a modular pipeline:
 
 1.  **Ingestion**: Multi-protocol stream handling (RTSP, RTMP, Local).
 2.  **Detection**: Abstraction layers for AI model inference (YOLO, CLIP, Custom).
-3.  **Intelligence**: Data-schema for persistent tracking and spatial awareness.
+3.  **Intelligence**: Data-schema for persistent tracking and situational awareness.
+4.  **Spatial Awareness**: Polygon-based zone detection, intrusion alerts, and loitering analysis.
 
 ## Getting Started
 
