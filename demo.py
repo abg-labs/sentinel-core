@@ -22,7 +22,19 @@ async def run_visual_demo():
     # Note: If no GPU is found, it will default to CPU automatically.
     detector = YOLODetector(model_type="yolov8n", confidence_threshold=0.3)
     
-    # 2. Initialize the Stream Processor (0 is usually the default webcam)
+    # 2. Initialize the Zone Engine and define a "Restricted Area"
+    # Polygon coordinates are normalized (0-1)
+    zone_engine = ZoneEngine()
+    restricted_zone = ZoneConfig(
+        id=1,
+        name="RESTRICTED PERSONNEL ZONE",
+        coordinates=[[0.3, 0.3], [0.7, 0.3], [0.7, 0.7], [0.3, 0.7]], # Center box
+        zone_type="restricted",
+        color="#ef4444" # Alert Red
+    )
+    zone_engine.add_zone(restricted_zone)
+
+    # 3. Initialize the Stream Processor (0 is usually the default webcam)
     # You can replace 0 with an RTSP URL or a video file path.
     processor = StreamProcessor(source=0, camera_id=999, fps=30)
     
@@ -33,11 +45,14 @@ async def run_visual_demo():
     logger.info("Stream acquired. Press 'q' in the window to terminate session.")
 
     async def detection_callback(frame, frame_id):
-        # Run detection
+        # Run intelligence inference
         detections = detector.detect(frame)
         
-        # Draw results for the demo visualizer
-        output_frame = frame.copy()
+        # Process situational zones
+        violations = zone_engine.process(detections)
+        
+        # Render tactical overlays
+        output_frame = zone_engine.overlay(frame, violations)
         h, w = frame.shape[:2]
         
         for det in detections:
