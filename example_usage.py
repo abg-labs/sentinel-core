@@ -5,8 +5,8 @@ This script demonstrates how to utilize the v0.1.0 architectural primitives.
 
 import asyncio
 import logging
-from sentinel.ai.base import BaseDetector, Detection
-from sentinel.core.manager import StreamManager
+from ai.base import BaseDetector, Detection
+from core.manager import StreamManager
 
 # Configure institutional logging
 logging.basicConfig(

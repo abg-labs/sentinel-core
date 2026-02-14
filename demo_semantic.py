@@ -1,8 +1,8 @@
 import cv2
 import asyncio
 import logging
-from sentinel.camera.processor import StreamProcessor
-from sentinel.ai.semantic import SemanticEngine
+from camera.processor import StreamProcessor
+from ai.semantic import SemanticEngine
 
 # Configure logging
 logging.basicConfig(

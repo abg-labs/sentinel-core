@@ -1,7 +1,7 @@
 import logging
 from typing import Dict, Optional
-from sentinel.core.stream import TechnicalStream
-from sentinel.ai.base import BaseDetector
+from core.stream import TechnicalStream
+from ai.base import BaseDetector
 
 logger = logging.getLogger(__name__)
 

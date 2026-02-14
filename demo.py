@@ -1,10 +1,10 @@
 import cv2
 import asyncio
 import logging
-from sentinel.core.stream import TechnicalStream
-from sentinel.ai.base import BaseDetector
-from sentinel.ai.detector import YOLODetector
-from sentinel.ai.zone import ZoneEngine, ZoneConfig
+from core.stream import TechnicalStream
+from ai.base import BaseDetector
+from ai.detector import YOLODetector
+from ai.zone import ZoneEngine, ZoneConfig
 
 # Configure logging
 logging.basicConfig(

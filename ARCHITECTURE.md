@@ -4,11 +4,11 @@ This document outlines the sovereign engineering standards and system flow of th
 
 ## System Flow
 
-1.  **Ingestion Layer**: `sentinel.camera.processor.StreamProcessor` handles the asynchronous acquisition of video frames from technical sources (RTSP, local sensors).
-2.  **Logic Layer**: `sentinel.core.manager.StreamManager` orchestrates the assignment of AI detectors to active streams.
-3.  **Intelligence Layer**: `sentinel.ai.detector.YOLODetector` executes high-throughput inference on incoming frames.
-4.  **Spatial Layer**: `sentinel.ai.zone.ZoneEngine` verifies situational awareness data against strategic boundaries.
-5.  **Semantic Layer**: `sentinel.ai.semantic.SemanticEngine` encodes frames into a sovereign vector space for natural language querying.
+1.  **Ingestion Layer**: `camera.processor.StreamProcessor` handles the asynchronous acquisition of video frames from technical sources (RTSP, local sensors).
+2.  **Logic Layer**: `core.manager.StreamManager` orchestrates the assignment of AI detectors to active streams.
+3.  **Intelligence Layer**: `ai.detector.YOLODetector` executes high-throughput inference on incoming frames.
+4.  **Spatial Layer**: `ai.zone.ZoneEngine` verifies situational awareness data against strategic boundaries.
+5.  **Semantic Layer**: `ai.semantic.SemanticEngine` encodes frames into a sovereign vector space for natural language querying.
 
 ## Strategic Principles
 

@@ -1,7 +1,7 @@
 # Sentinel Core
 
 <p align="left">
-  <img src="https://img.shields.io/badge/version-v0.2.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-v0.2.1-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/security-vetted-gold.svg" alt="Security">
@@ -11,7 +11,7 @@
 
 Sentinel Core is the open-source foundational layer of the Sentinel platform. It provides the architectural primitives required for high-performance, autonomous video intelligence, object detection, and multi-stream camera management.
 
-This core library is maintained by **AB Group** and is engineered for environments where reliability and low-latency processing are non-negotiable.
+This core library is maintained by **AB Labs** and is engineered for environments where reliability and low-latency processing are non-negotiable.
 
 ---
 
@@ -30,8 +30,8 @@ Sentinel Core is designed as a modular pipeline:
 Sentinel Core is designed to be highly extensible. Below is a minimal implementation of a custom situational awareness detector:
 
 ```python
-from sentinel.ai.base import BaseDetector, Detection
-from sentinel.core.manager import StreamManager
+from ai.base import BaseDetector, Detection
+from core.manager import StreamManager
 
 class CustomUnitDetector(BaseDetector):
     def detect(self, frame):
@@ -55,7 +55,7 @@ Sentinel Core is a living framework. We push technical updates and architectural
 
 - **v0.1.0** (Feb 2026): Core Schema & AI Abstraction Interfaces.
 - **v0.2.0** (Feb 2026): Functional Stream Processing & Native Intelligence wrappers (YOLO).
-- **v0.3.0** (Feb 2026): Sovereign Semantic Search via CLIP embeddings.
+- **v0.2.1** (Feb 2026): Sovereign Semantic Search via CLIP embeddings.
 - **In-development**: Distributed indexing, GPU-accelerated inference, and autonomous alerting protocols.
 
 ---
@@ -64,4 +64,4 @@ Sentinel Core is a living framework. We push technical updates and architectural
 
 Surveillance is not just about recording video; it's about **autonomous situational awareness.** Sentinel Core provides the schemas that transform raw pixels into strategic data.
 
-© 2026 [AB Group](https://abgroupglobal.com) • Strategic Systems Engineering.
+© 2026 [AB Labs](https://github.com/abg-labs) • Strategic Systems Engineering.
