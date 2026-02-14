@@ -1,0 +1,6 @@
+numpy>=1.24.0
+opencv-python-headless>=4.8.0
+ultralytics>=8.0.0
+torch>=2.0.0
+clip-by-openai @ git+https://github.com/openai/CLIP.git
+pillow>=10.0.0
