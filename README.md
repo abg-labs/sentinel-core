@@ -1,5 +1,12 @@
 # Sentinel Core
 
+<p align="left">
+  <img src="https://img.shields.io/badge/version-v0.2.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows-lightgrey.svg" alt="Platform">
+  <img src="https://img.shields.io/badge/security-vetted-gold.svg" alt="Security">
+</p>
+
 **The Mission-Critical Surveillance Framework.**
 
 Sentinel Core is the open-source foundational layer of the Sentinel platform. It provides the architectural primitives required for high-performance, autonomous video intelligence, object detection, and multi-stream camera management.
