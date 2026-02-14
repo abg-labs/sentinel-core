@@ -44,9 +44,9 @@ asyncio.run(manager.start_stream(camera_id=101, source="rtsp://internal.secure-f
 
 Sentinel Core is a living framework. We push technical updates and architectural refinements as they are validated through our ongoing strategic deployments. Our goal is to maintain a continuous stream of progress:
 
-- **Current focus**: Core Schema & AI Abstraction Interfaces.
-- **In-development**: High-performance stream acquisition and buffer management logic.
-- **Future engineering**: Standardized wrappers for real-time model inference (YOLO/CLIP).
+- **v0.1.0** (Feb 2026): Core Schema & AI Abstraction Interfaces.
+- **v0.2.0** (Feb 2026): Functional Stream Processing & Native Intelligence wrappers (YOLO).
+- **In-development**: Advanced Buffer Management and GPU acceleration optimizations.
 
 ---
 
