@@ -24,6 +24,8 @@ Sentinel Core is designed as a modular pipeline:
 3.  **Intelligence**: Data-schema for persistent tracking and situational awareness.
 4.  **Spatial Awareness**: Polygon-based zone detection, intrusion alerts, and loitering analysis.
 5.  **Semantic Search**: Natural language querying of technical data streams via sovereign CLIP embeddings.
+6.  **Sovereign Alerting**: Standardized protocols for secure alert delivery via Telegram, Webhooks, and custom channels.
+7.  **Evidence Persistence**: High-fidelity video recording with pre-event buffering and automated segment management.
 
 ## Getting Started
 
@@ -56,6 +58,7 @@ Sentinel Core is a living framework. We push technical updates and architectural
 - **v0.1.0** (Feb 2026): Core Schema & AI Abstraction Interfaces.
 - **v0.2.0** (Feb 2026): Functional Stream Processing & Native Intelligence wrappers (YOLO).
 - **v0.2.1** (Feb 2026): Sovereign Semantic Search via CLIP embeddings.
+- **v0.4.0** (Feb 2026): Strategic Response (Alerting) & Evidence Persistence (Recording).
 - **In-development**: Distributed indexing, GPU-accelerated inference, and autonomous alerting protocols.
 
 ---
