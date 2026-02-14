@@ -4,7 +4,7 @@ import logging
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 from dataclasses import dataclass
-from sentinel.ai.base import Detection
+from ai.base import Detection
 
 logger = logging.getLogger(__name__)
 

@@ -2,11 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name="sentinel-core",
-    version="0.1.0",
+    version="0.2.1",
     description="The foundational framework for mission-critical surveillance and situational awareness.",
-    author="AB Group",
-    author_url="https://abgroupglobal.com",
-    packages=find_packages(),
+    author="AB Labs",
+    author_url="https://github.com/abg-labs/sentinel-core",
+    packages=find_packages(include=['ai', 'camera', 'core', 'ai.*', 'camera.*', 'core.*']),
     install_requires=[
         "numpy",
         "opencv-python-headless",
