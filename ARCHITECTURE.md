@@ -2,6 +2,39 @@
 
 This document outlines the sovereign engineering standards and system flow of the Sentinel Core engine.
 
+## Operational Overview
+
+```mermaid
+graph TB
+    subgraph Acquisition
+        A[Data Source:<br/>RTSP/Local Sensors] --> B[StreamProcessor]
+    end
+
+    subgraph Intelligence Cycle
+        B --> C[StreamManager]
+        C --> D[YOLODetector]
+        C --> E[SemanticEngine]
+        D --> F[ZoneEngine]
+    end
+
+    subgraph Silicon Optimization
+        D -.-> G[HardwareAccelerator]
+        E -.-> G
+    end
+
+    subgraph Strategic Response
+        F --> H[VideoRecorder]
+        D --> I[AlertManager]
+        I --> J[Telegram / Webhooks]
+    end
+
+    %% Institutional Styling
+    style G fill:#1F4FD8,color:#fff,stroke:#fff,stroke-width:2px
+    style I fill:#D4AF37,color:#000,stroke:#000,stroke-width:2px
+    style B fill:#f4f4f4,stroke:#333
+    style C fill:#f4f4f4,stroke:#333
+```
+
 ## System Flow
 
 1.  **Ingestion Layer**: `camera.processor.StreamProcessor` handles the asynchronous acquisition of video frames from technical sources (RTSP, local sensors).

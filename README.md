@@ -1,7 +1,7 @@
 # Sentinel Core
 
 <p align="left">
-  <img src="https://img.shields.io/badge/version-v0.5.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-v0.6.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/security-vetted-gold.svg" alt="Security">
@@ -15,6 +15,19 @@ This core library is maintained by **AB Labs** and is engineered for environment
 
 ---
 
+## Strategic Pipeline
+
+```mermaid
+graph LR
+    A[Ingestion] --> B[Intelligence]
+    B --> C[Spatial Awareness]
+    C --> D[Alerting]
+    C --> E[Persistence]
+    
+    style B fill:#1F4FD8,color:#fff
+    style D fill:#D4AF37,color:#000
+```
+
 ## High-Level Architecture
 
 Sentinel Core is designed as a modular pipeline:
@@ -27,6 +40,7 @@ Sentinel Core is designed as a modular pipeline:
 6.  **Sovereign Alerting**: Standardized protocols for secure alert delivery via Telegram, Webhooks, and custom channels.
 7.  **Evidence Persistence**: High-fidelity video recording with pre-event buffering and automated segment management.
 8.  **Hardware Acceleration**: Silicon-aware optimization for NVIDIA CUDA and Apple Silicon (MPS).
+9.  **Sovereign Memory**: Institutional-grade persistence for detections and alerts via local SQLite substrate.
 
 ## Getting Started
 
@@ -61,7 +75,8 @@ Sentinel Core is a living framework. We push technical updates and architectural
 - **v0.2.1** (Feb 2026): Sovereign Semantic Search via CLIP embeddings.
 - **v0.4.0** (Feb 2026): Strategic Response (Alerting) & Evidence Persistence (Recording).
 - **v0.5.0** (Feb 2026): Silicon-Aware Hardware Acceleration (CUDA/MPS).
-- **In-development**: Sovereign Memory (SQLite), distributed indexing, and GPU-accelerated inference.
+- **v0.6.0** (Feb 2026): Sovereign Memory (Persistent SQLite Archive).
+- **In-development**: Distributed indexing, GPU-accelerated inference, and autonomous alerting protocols.
 
 ---
 
