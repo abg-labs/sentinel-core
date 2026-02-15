@@ -9,6 +9,7 @@ This document outlines the sovereign engineering standards and system flow of th
 3.  **Intelligence Layer**: `ai.detector.YOLODetector` executes high-throughput inference on incoming frames.
 4.  **Spatial Layer**: `ai.zone.ZoneEngine` verifies situational awareness data against strategic boundaries.
 5.  **Semantic Layer**: `ai.semantic.SemanticEngine` encodes frames into a sovereign vector space for natural language querying.
+6.  **Acceleration Layer**: `core.accelerator.HardwareAccelerator` optimizes computational throughput across NVIDIA and Apple Silicon.
 
 ## Strategic Principles
 

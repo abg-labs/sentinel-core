@@ -1,7 +1,7 @@
 # Sentinel Core
 
 <p align="left">
-  <img src="https://img.shields.io/badge/version-v0.2.1-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-v0.5.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/security-vetted-gold.svg" alt="Security">
@@ -26,6 +26,7 @@ Sentinel Core is designed as a modular pipeline:
 5.  **Semantic Search**: Natural language querying of technical data streams via sovereign CLIP embeddings.
 6.  **Sovereign Alerting**: Standardized protocols for secure alert delivery via Telegram, Webhooks, and custom channels.
 7.  **Evidence Persistence**: High-fidelity video recording with pre-event buffering and automated segment management.
+8.  **Hardware Acceleration**: Silicon-aware optimization for NVIDIA CUDA and Apple Silicon (MPS).
 
 ## Getting Started
 
@@ -59,7 +60,8 @@ Sentinel Core is a living framework. We push technical updates and architectural
 - **v0.2.0** (Feb 2026): Functional Stream Processing & Native Intelligence wrappers (YOLO).
 - **v0.2.1** (Feb 2026): Sovereign Semantic Search via CLIP embeddings.
 - **v0.4.0** (Feb 2026): Strategic Response (Alerting) & Evidence Persistence (Recording).
-- **In-development**: Distributed indexing, GPU-accelerated inference, and autonomous alerting protocols.
+- **v0.5.0** (Feb 2026): Silicon-Aware Hardware Acceleration (CUDA/MPS).
+- **In-development**: Sovereign Memory (SQLite), distributed indexing, and GPU-accelerated inference.
 
 ---
 

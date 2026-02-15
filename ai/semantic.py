@@ -7,6 +7,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+from core.accelerator import HardwareAccelerator
+
 logger = logging.getLogger(__name__)
 
 # Institutional Defaults
@@ -40,7 +42,7 @@ class SemanticEngine:
         self.lock = threading.Lock()
         self._model = None
         self._preprocess = None
-        self._device = None
+        self._device = HardwareAccelerator.get_device()
         
         self._load_index()
 
@@ -52,9 +54,9 @@ class SemanticEngine:
         try:
             import torch
             import clip
-            self._device = "cuda" if torch.cuda.is_available() else "cpu"
             logger.info(f"Loading Semantic Intelligence Model ({DEFAULT_MODEL}) on {self._device}...")
             self._model, self._preprocess = clip.load(DEFAULT_MODEL, device=self._device)
+            HardwareAccelerator.optimize_model(self._model)
         except ImportError:
             logger.error("CLIP dependencies missing. Installation required: pip install git+https://github.com/openai/CLIP.git")
             raise

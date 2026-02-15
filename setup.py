@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sentinel-core",
-    version="0.2.1",
+    version="0.5.0",
     description="The foundational framework for mission-critical surveillance and situational awareness.",
     author="AB Labs",
     author_url="https://github.com/abg-labs/sentinel-core",

@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 import logging
 from typing import List, Optional, Tuple
-from sentinel.ai.base import BaseDetector, Detection
+from ai.base import BaseDetector, Detection
+from core.accelerator import HardwareAccelerator
 
 # Note: Requires 'ultralytics' to be installed for full functionality
 try:
@@ -21,11 +22,12 @@ class YOLODetector(BaseDetector):
         self,
         model_type: str = "yolov8n",
         confidence_threshold: float = 0.5,
-        device: str = "cpu"
+        device: Optional[str] = None
     ):
         super().__init__(confidence_threshold)
         self.model_type = model_type
-        self.device = device
+        # Use provided device or auto-detect via accelerator
+        self.device = device or HardwareAccelerator.get_device()
         self.model = None
         self._load_model()
 
@@ -36,8 +38,9 @@ class YOLODetector(BaseDetector):
 
         try:
             self.model = YOLO(f"{self.model_type}.pt")
-            self.model.to(self.device)
-            logger.info(f"Intelligence model {self.model_type} loaded on {self.device}")
+            # Apply institutional optimizations
+            HardwareAccelerator.optimize_model(self.model)
+            logger.info(f"Intelligence model {self.model_type} synchronized with {self.device}")
         except Exception as e:
             logger.error(f"Intelligence loading error: {e}")
 
