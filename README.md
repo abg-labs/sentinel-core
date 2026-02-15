@@ -1,7 +1,7 @@
 # Sentinel Core
 
 <p align="left">
-  <img src="https://img.shields.io/badge/version-v0.6.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-v0.8.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Linux%20|%20macOS%20|%20Windows-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/security-vetted-gold.svg" alt="Security">
@@ -41,6 +41,7 @@ Sentinel Core is designed as a modular pipeline:
 7.  **Evidence Persistence**: High-fidelity video recording with pre-event buffering and automated segment management.
 8.  **Hardware Acceleration**: Silicon-aware optimization for NVIDIA CUDA and Apple Silicon (MPS).
 9.  **Sovereign Memory**: Institutional-grade persistence for detections and alerts via local SQLite substrate.
+10. **Tactical Dashboard**: A premium web interface for real-time monitoring and natural language forensic search.
 
 ## Getting Started
 
@@ -65,6 +66,13 @@ manager.set_detector(CustomUnitDetector())
 import asyncio
 asyncio.run(manager.start_stream(camera_id=101, source="rtsp://internal.secure-feed.local/stream1"))
 ```
+
+### Experience the Full Ecosystem (v1 Launch Candidate)
+Run the integrated engine and tactical dashboard in a single command:
+```bash
+python run_sentinel_v1.py
+```
+*Access the dashboard at http://localhost:8000*
 
 ## Mission-Critical Performance
 
@@ -95,7 +103,8 @@ Sentinel Core is a living framework. We push technical updates and architectural
 - **v0.4.0** (Feb 2026): Strategic Response (Alerting) & Evidence Persistence (Recording).
 - **v0.5.0** (Feb 2026): Silicon-Aware Hardware Acceleration (CUDA/MPS).
 - **v0.6.0** (Feb 2026): Sovereign Memory (Persistent SQLite Archive).
-- **In-development**: Distributed indexing, GPU-accelerated inference, and autonomous alerting protocols.
+- **v0.8.0** (Feb 2026): Sovereign Intelligence Dashboard & Semantic Search Bridge.
+- **v1.0.0** (Target): Official Launch — Zero-Latency Surveillance Orchestration.
 
 ---
 

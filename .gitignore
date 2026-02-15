@@ -1,0 +1,17 @@
+# Session Data (Sovereign Intelligence)
+search_index/
+sentinel_memory.db
+sentinel_evidence/
+recordings/
+*.npy
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# MacOS
+.DS_Store
