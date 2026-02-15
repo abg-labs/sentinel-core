@@ -5,3 +5,5 @@ torch>=2.0.0
 clip-by-openai @ git+https://github.com/openai/CLIP.git
 pillow>=10.0.0
 httpx>=0.24.0
+fastapi>=0.100.0
+uvicorn>=0.23.0

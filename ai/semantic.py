@@ -1,4 +1,5 @@
 import logging
+import cv2
 import threading
 import json
 import numpy as np
@@ -97,10 +98,15 @@ class SemanticEngine:
         entry_id = f"unit{camera_id}_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}"
         
         with self.lock:
+            # Persistent Snapshot for Dashboard
+            snapshot_path = self.index_dir / f"{entry_id}.jpg"
+            cv2.imwrite(str(snapshot_path), frame)
+
             self.entry_ids.append(entry_id)
             self.metadata[entry_id] = {
                 "camera_id": camera_id,
                 "timestamp": datetime.now().isoformat(),
+                "snapshot": f"{entry_id}.jpg",
                 **(metadata or {})
             }
             

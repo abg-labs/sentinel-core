@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel | Sovereign Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            font-family: 'Sora', sans-serif;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Syne', sans-serif;
+        }
+
+        .strategic-blue {
+            color: #1F4FD8;
+        }
+
+        .bg-strategic-blue {
+            background-color: #111111;
+            border: 1px solid #1F4FD8;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-bar:focus {
+            box-shadow: 0 0 15px rgba(31, 79, 216, 0.3);
+            border-color: #1F4FD8;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-8 lg:p-16">
+    <!-- Institutional Header -->
+    <header class="mb-12 flex justify-between items-center">
+        <div>
+            <h1 class="text-3xl font-extrabold tracking-tighter uppercase mb-1">Sentinel <span
+                    class="strategic-blue">Core</span></h1>
+            <p class="text-xs tracking-widest uppercase opacity-40 font-semibold">Sovereign Intelligence Dashboard
+                v0.8.0</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full flex items-center gap-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] font-bold uppercase tracking-tighter text-green-500">System Link Active</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sovereign Search -->
+    <section class="max-w-4xl mx-auto mb-16">
+        <div class="relative group">
+            <input type="text" id="searchBar" placeholder="Query semantic memory (e.g. 'Person in black jacket')"
+                class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-6 text-xl font-light focus:outline-none transition-all duration-500 search-bar">
+            <button onclick="performSearch()"
+                class="absolute right-4 top-1/2 -translate-y-1/2 px-6 py-3 bg-strategic-blue text-white rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all">
+                Search
+            </button>
+        </div>
+    </section>
+
+    <!-- Intelligence Grid -->
+    <main class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+            <h2 class="text-xl font-bold uppercase tracking-tight">Search <span class="opacity-40">Results</span>
+            </h2>
+            <p id="resultCount" class="text-xs opacity-40 uppercase font-semibold">0 Results Indexed</p>
+        </div>
+
+        <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic Results -->
+            <div
+                class="col-span-full h-64 flex flex-col items-center justify-center opacity-20 bg-white/5 rounded-3xl border border-dashed border-white/10">
+                <svg class="w-12 h-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <p class="text-sm font-semibold uppercase tracking-widest">Awaiting Semantic Query</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE = "http://localhost:8000";
+
+        async function performSearch() {
+            const query = document.getElementById('searchBar').value;
+            if (!query) return;
+
+            const grid = document.getElementById('resultsGrid');
+            const countLabel = document.getElementById('resultCount');
+
+            // Loading State
+            grid.innerHTML = '<div class="col-span-full flex justify-center py-20 animate-pulse text-sm uppercase tracking-widest opacity-50">Synchronizing with Sovereign Memory...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/search`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query, top_k: 6 })
+                });
+
+                const results = await response.json();
+                countLabel.innerText = `${results.length} EVIDENCE DISCOVERED`;
+
+                if (results.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full h-64 flex flex-col items-center justify-center opacity-40 bg-white/5 rounded-3xl border border-dashed border-white/10">
+                            <svg class="w-12 h-12 mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            <p class="text-sm font-semibold uppercase tracking-widest">Low Signal Confidence</p>
+                            <p class="text-[10px] opacity-50 mt-2">Try refining your search parameters for better tactical alignment.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = results.map(r => `
+                    <div class="group relative bg-[#111] rounded-3xl overflow-hidden border border-white/5 hover:border-[#1F4FD8]/40 transition-all duration-700">
+                        <div class="aspect-video relative overflow-hidden bg-black">
+                            <img src="${API_BASE}${r.snapshot_url}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-1">Situational Evidence</p>
+                                    <h3 class="text-sm font-bold uppercase tracking-tight">${r.timestamp}</h3>
+                                </div>
+                                <div class="px-2 py-1 rounded bg-[#1F4FD8]/20 text-[#1F4FD8] text-[9px] font-black uppercase">
+                                    ${r.similarity}% MATCH
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-[10px] font-semibold opacity-30 mt-4 uppercase tracking-tighter">
+                                <span class="p-1 px-2 border border-white/10 rounded">Unit ${r.camera_id}</span>
+                                <span>•</span>
+                                <span>Verified Integrity</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = '<div class="col-span-full text-center text-red-500 py-20 text-xs uppercase font-bold tracking-widest">Protocol Failure: Memory Link Severed. Run benchmark.py to verify subsystem status.</div>';
+            }
+        }
+
+        // Enter key support
+        document.getElementById('searchBar').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+    </script>
+</body>
+
+</html>
