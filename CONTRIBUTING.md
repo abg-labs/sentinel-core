@@ -15,7 +15,8 @@ As a project engineered for strategic environments, we maintain high standards f
 1.  **Fork the Repo**: Create your own tactical workspace.
 2.  **Create a Branch**: Use a prefix like `feat/`, `fix/`, or `refactor/`.
 3.  **Run the Demo**: Ensure your changes don't break the `demo.py` visualizer.
-4.  **Submit a PR**: Provide a clear description of the technical impact of your changes.
+4.  **Verify Performance**: Run `python benchmark.py` to ensure no regression in situational awareness throughput.
+5.  **Submit a PR**: Provide a clear description of the technical impact of your changes.
 
 ## Code of Conduct
 
